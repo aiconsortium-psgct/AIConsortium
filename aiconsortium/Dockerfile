@@ -9,7 +9,7 @@ RUN npm install
 # Copy all files including assets directory
 COPY . .
 
-EXPOSE 5731
+EXPOSE 4173
 
 # Build the application
 RUN npm run build
