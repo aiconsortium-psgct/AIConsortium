@@ -37,8 +37,10 @@
 }
 
 .team-member-image-container {
-  width: 100%;
-  aspect-ratio: 2/3; /* Maintaining the aspect ratio */
+  width: 85%;
+  aspect-ratio: 3 / 4;
+  margin: 12px auto 0 auto;
+  border-radius: 50%;
   overflow: hidden;
   flex-shrink: 0; /* Prevents the image from shrinking */
 }
@@ -47,6 +49,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
   transition: transform 0.5s;
   object-position: center 30%; /* This shifts the focal point up by 20% */
 }
@@ -184,8 +187,8 @@
 }
 
 .popup-image {
-  width: 100px;
-  height: 100px;
+  width: 110px;
+  height: 145px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 20px;

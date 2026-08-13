@@ -8,6 +8,7 @@ import '@schedule-x/theme-default/dist/index.css';
 import './event.css';
 import CustomEventModal from './EventModal';
 import { events } from '../../data/events';
+import EventsList from '../../components/ContentTabs/components/EventsList';
 
 function CalendarApp() {
   const eventsService = useState(() => createEventsServicePlugin())[0];
@@ -60,6 +61,10 @@ function CalendarApp() {
             }}
           />
         </div>
+      </div>
+      <div className="events-cards-section">
+        <h2 className="events-cards-title">Explore Events</h2>
+        <EventsList events={events} />
       </div>
     </div>
   );

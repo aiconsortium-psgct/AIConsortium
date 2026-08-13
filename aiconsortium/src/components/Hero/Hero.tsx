@@ -28,7 +28,7 @@ const Hero: React.FC = () => {
         </h2>
         <div className="hero-stats">
           <div className="stat-item">
-            <div className="stat-value">10+</div>
+            <div className="stat-value">3+</div>
             <div className="stat-label">AI Labs</div>
           </div>
           <div className="stat-item">
@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
             <div className="stat-label">Members</div>
           </div>
           <div className="stat-item">
-            <div className="stat-value">100+</div>
+            <div className="stat-value">500+</div>
             <div className="stat-label">Student Ambassadors</div>
           </div>
         </div>

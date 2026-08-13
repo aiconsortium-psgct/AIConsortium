@@ -53,6 +53,10 @@ export interface UIProject{
   id: string;
   title: string;
   description: string;
+  completedDate?: string;
+  sactionedDate?: string;
+  year?: string;
+  contributors?: number;
 }
 
 //sample data
@@ -60,6 +64,7 @@ const projects: Project[] = [
   {
     id: "project-1",
     title: "Design and development of a wearable navigation guidance (WING) kit for elderly with dementia with a fall predictor",
+    completedDate: "2024-12-15",
     duration: "3 years 1 month",
     sponsorOrganization: "DST",
     amount: "56 lakhs",
@@ -78,6 +83,7 @@ const projects: Project[] = [
   {
     id: "project-2",
     title: "Design and Implementation of E-Learning System using Deep Learning Based on Audio-Video Speech Recognition for Hearing Impaired in Native Language",
+    sactionedDate: "2025-01-10",
     duration: "3 years",
     sponsorOrganization: "DST-ICPS",
     amount: "70 lakhs",
@@ -98,6 +104,7 @@ const projects: Project[] = [
   {
     id: "project-3",
     title: "Development of Smart Assistive Aids to screen and assess Dyslexic children in primary school along with curriculum development in regional language",
+    sactionedDate: "2025-05-20",
     duration: "3 years",
     sponsorOrganization: "DST",
     amount: "50.18 lakhs",
@@ -117,6 +124,7 @@ const projects: Project[] = [
   {
     id: "project-4",
     title: "Design and Development of AI powered Cognitive Remediation Therapy through Gaming for Schizophrenia patients",
+    sactionedDate: "2026-02-01",
     duration: "3 years",
     sponsorOrganization: "DST",
     amount: "40.26 lakhs",

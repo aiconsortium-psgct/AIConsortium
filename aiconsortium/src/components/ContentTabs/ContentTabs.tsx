@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import {TrendingUp, Calendar, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
+import { TrendingUp, Calendar, FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 import './ContentTabs.css';
 import { projects as sourceProjects, Project as DataProject } from '../../data/projects';
 import { events } from '../../data/events';
@@ -24,7 +24,9 @@ const ContentTabs: React.FC = () => {
         contributors: Array.isArray(project.contributors)
           ? project.contributors.length
           : project.contributors,
-        description: project.description
+        description: project.description,
+        completedDate: project.completedDate,
+        sactionedDate: project.sactionedDate
       };
     });
   };

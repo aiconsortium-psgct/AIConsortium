@@ -79,6 +79,20 @@ function About() {
               </div>
 
               <div className="abt-section-title">
+                <h3>Watch: AI Consortium Overview</h3>
+              </div>
+              <div className="abt-video-wrapper mb-6">
+                <div className="abt-video-container">
+                  <iframe
+                    src="https://www.youtube.com/embed/7qPPwkK6s3g"
+                    title="PSG - AI Consortium Overview"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
+
+              <div className="abt-section-title">
                 <h3>Evolution of the AI Consortium</h3>
               </div>
               <p className="abt-content-text mb-4">

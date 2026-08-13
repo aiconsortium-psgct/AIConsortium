@@ -25,8 +25,8 @@ const VisionMission: React.FC = () => {
               <h2 className="card-title">Our Vision</h2>
             </div>
             <p className="card-content">
-              AI consortium strives to be pioneers in the field of Artificial Intelligence
-              to uplift the society with steadfast commitment to responsible and safe AI.
+              We're here to pave the way in artificial intelligence with a focus on doing things the right way.
+              By putting safe, responsible AI at the heart of our work, we aim to create technology that truly brightens people's lives.
             </p>
           </motion.div>
 
@@ -42,9 +42,8 @@ const VisionMission: React.FC = () => {
               <h2 className="card-title">Our Mission</h2>
             </div>
             <p className="card-content">
-              Our mission is to provide a collaborative environment for sharing knowledge
-              and developing innovative AI solutions that empower individuals and organizations
-              while prioritizing ethical standards and societal well-being.
+              We create a welcoming space where people can learn together and build AI tools that make a real difference.
+              We empower individuals and teams to innovate, always guided by strong ethics and a commitment to helping our communities thrive.
             </p>
           </motion.div>
         </div>

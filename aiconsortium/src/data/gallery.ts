@@ -41,6 +41,35 @@ import AIWeekPD08 from '/images/AI WEEK_Panel Discussion_ 03 April 2025/IMG_8554
 //Driving Sustainability through AI: From Concept to Impact
 import DrivingSust01 from '/images/DrivingSustainabilitythroughAI/image01.png';
 import DrivingSust02 from '/images/DrivingSustainabilitythroughAI/image.png';
+// Additional Event Images
+import aiHorizon from '/images/eventImages/AI HORIZON.jpg';
+import aiImpact from '/images/eventImages/AI IMPACT.jpg';
+import img20251223WA0055 from '/images/eventImages/IMG-20251223-WA0055.jpg';
+import img0268 from '/images/eventImages/IMG_0268.JPG';
+import img0343Copy from '/images/eventImages/IMG_0343 - Copy.JPG';
+import img1203 from '/images/eventImages/IMG_1203.JPG';
+import img1236 from '/images/eventImages/IMG_1236.JPG';
+import img1270 from '/images/eventImages/IMG_1270.JPG';
+import img1298 from '/images/eventImages/IMG_1298.JPG';
+import img1310 from '/images/eventImages/IMG_1310.JPG';
+import img1545_2 from '/images/eventImages/IMG_1545 (2).JPG';
+import img1655_2 from '/images/eventImages/IMG_1655 (2).JPG';
+import img1700_2 from '/images/eventImages/IMG_1700 (2).JPG';
+import img1756_2 from '/images/eventImages/IMG_1756 (2).JPG';
+import img1803Copy from '/images/eventImages/IMG_1803 - Copy - Copy - Copy - Copy.JPG';
+import img1807Copy from '/images/eventImages/IMG_1807 - Copy - Copy - Copy - Copy.JPG';
+import img1921 from '/images/eventImages/IMG_1921.JPG';
+import img1965Copy from '/images/eventImages/IMG_1965 - Copy - Copy - Copy.JPG';
+import img2106 from '/images/eventImages/IMG_2106.JPG';
+import img2612Copy from '/images/eventImages/IMG_2612 - Copy.JPG';
+import img2682Copy from '/images/eventImages/IMG_2682 - Copy.JPG';
+import img2690Copy from '/images/eventImages/IMG_2690 - Copy.JPG';
+import img2721Copy from '/images/eventImages/IMG_2721 - Copy.JPG';
+import img2797Copy from '/images/eventImages/IMG_2797 - Copy.JPG';
+import img8960 from '/images/eventImages/IMG_8960.JPG';
+import img9725Copy from '/images/eventImages/IMG_9725 - Copy.JPG';
+import whatsappImage20260810 from '/images/eventImages/WhatsApp Image 2026-08-10 at 8.55.53 PM.jpeg';
+
 
 export interface Gallery{
     id: number,
@@ -170,7 +199,116 @@ const gallery: Gallery[] = [
     {
         id: 31,
         image: DrivingSust02
+    },
+    {
+        id: 32,
+        image: aiHorizon
+    },
+    {
+        id: 33,
+        image: aiImpact
+    },
+    {
+        id: 34,
+        image: img20251223WA0055
+    },
+    {
+        id: 35,
+        image: img0268
+    },
+    {
+        id: 36,
+        image: img0343Copy
+    },
+    {
+        id: 37,
+        image: img1203
+    },
+    {
+        id: 38,
+        image: img1236
+    },
+    {
+        id: 39,
+        image: img1270
+    },
+    {
+        id: 40,
+        image: img1298
+    },
+    {
+        id: 41,
+        image: img1310
+    },
+    {
+        id: 42,
+        image: img1545_2
+    },
+    {
+        id: 43,
+        image: img1655_2
+    },
+    {
+        id: 44,
+        image: img1700_2
+    },
+    {
+        id: 45,
+        image: img1756_2
+    },
+    {
+        id: 46,
+        image: img1803Copy
+    },
+    {
+        id: 47,
+        image: img1807Copy
+    },
+    {
+        id: 48,
+        image: img1921
+    },
+    {
+        id: 49,
+        image: img1965Copy
+    },
+    {
+        id: 50,
+        image: img2106
+    },
+    {
+        id: 51,
+        image: img2612Copy
+    },
+    {
+        id: 52,
+        image: img2682Copy
+    },
+    {
+        id: 53,
+        image: img2690Copy
+    },
+    {
+        id: 54,
+        image: img2721Copy
+    },
+    {
+        id: 55,
+        image: img2797Copy
+    },
+    {
+        id: 56,
+        image: img8960
+    },
+    {
+        id: 57,
+        image: img9725Copy
+    },
+    {
+        id: 58,
+        image: whatsappImage20260810
     }
+
 ]
 
 export {gallery};

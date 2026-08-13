@@ -45,9 +45,10 @@ html body .calendar-wrapper .sx-date-today .sx-date-number,
 }
 
 .calendar-page {
-  height: 100%;
-  overflow: hidden;
+  min-height: 100vh;
+  overflow-y: auto;
   padding-top: 180px; /* Changed from 8rem to 200px for desktop */
+  padding-bottom: 3rem;
 }
 
 /* Adjustments for different screen sizes */
@@ -61,6 +62,24 @@ html body .calendar-wrapper .sx-date-today .sx-date-number,
   .calendar-page {
     padding-top: 160px; /* Even less on mobile */
   }
+}
+
+.events-cards-section {
+  max-width: 1200px;
+  margin: 3rem auto 0 auto;
+  padding: 0 1.5rem;
+}
+
+.events-cards-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #DC9E57;
+}
+
+.events-cards-section .events-list {
+  flex-wrap: wrap;
+  overflow-x: visible;
 }
 
 /* Override events styling with maximum specificity */

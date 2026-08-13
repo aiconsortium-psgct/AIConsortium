@@ -1,40 +1,104 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import "./team.css";
 import TeamMember from "../../components/TeamMember/TeamMember";
 import { teamDetails } from "../../data/team";
+
+const ROTATING_ROLE = "Domain Specific Academic Advisors and Innovation Mentors";
+
+const roleDisplayLabels: Record<string, string> = {
+  "Patron": "Patron",
+  "Director": "Director",
+  "Program Managers": "The Orchestrators",
+  "Domain Specific Academic Advisors and Innovation Mentors": "Mentors & Innovators",
+  "IT Infrastructure and Networking Technical Lead": "The Backbone Builders",
+  "Community Outreach and Operations Managers": "Community Champions",
+  "AI Product Development (Technical Leads)": "Builders & Architects",
+  "Curriculum Design": "Curriculum Crafters",
+  "Student Ambassadors Management": "Campus Voices",
+  "AI Alumni Council": "The Alumni Circle",
+  "All": "All"
+};
 
 const AIConsortium = () => {
   // Get unique roles from team data
   const allRoles = ["All", ...Array.from(new Set(teamDetails.map(member => member.role)))].filter(Boolean);
 
-  // State to track the currently selected role
+  // Derive available years dynamically from members
+  const availableYears = useMemo(() => {
+    const years = Array.from(
+      new Set(
+        teamDetails
+          .filter(member => member.year)
+          .map(member => member.year)
+      )
+    ).sort((a, b) => b - a);
+    return years.length > 0 ? years : [2026, 2025];
+  }, []);
+
+  // State to track selected role and selected year
   const [selectedRole, setSelectedRole] = useState("All");
-  // Filtered team members based on selected role
-  const [filteredMembers, setFilteredMembers] = useState(teamDetails);
-  // Reference to the tabs container for scrolling
-  const tabsContainerRef = useRef<HTMLDivElement>(null);
+  const [selectedYear, setSelectedYear] = useState<number>(() => availableYears[0]);
 
-  // Filter team members when selected role changes
-  useEffect(() => {
-    if (selectedRole === "All") {
-      setFilteredMembers(teamDetails);
-    } else {
-      setFilteredMembers(teamDetails.filter(member => member.role === selectedRole));
-    }
-  }, [selectedRole]);
+  // Filtered team members based on selected role and selected year
+  const filteredMembers = useMemo(() => {
+    return teamDetails.filter(member => {
+      // Role filter check
+      const matchesRole = selectedRole === "All" || member.role === selectedRole;
 
-  // Handle scroll navigation
-  const scrollTabs = (direction: 'left' | 'right') => {
-    if (tabsContainerRef.current) {
-      const scrollAmount = 200; // Amount to scroll in pixels
-      const currentScroll = tabsContainerRef.current.scrollLeft;
+      // Year filter check: member's year must match selectedYear
+      const matchesYear = !member.year || member.year === selectedYear;
 
-      tabsContainerRef.current.scrollTo({
+      return matchesRole && matchesYear;
+    });
+  }, [selectedRole, selectedYear]);
+
+  // References to the tab containers for scrolling
+  const roleTabsContainerRef = useRef<HTMLDivElement>(null);
+  const yearTabsContainerRef = useRef<HTMLDivElement>(null);
+
+  // Handle scroll navigation for role tabs
+  const scrollRoleTabs = (direction: 'left' | 'right') => {
+    if (roleTabsContainerRef.current) {
+      const scrollAmount = 200;
+      const currentScroll = roleTabsContainerRef.current.scrollLeft;
+      roleTabsContainerRef.current.scrollTo({
         left: direction === 'left' ? currentScroll - scrollAmount : currentScroll + scrollAmount,
         behavior: 'smooth'
       });
     }
   };
+
+  // Handle scroll navigation for year tabs
+  const scrollYearTabs = (direction: 'left' | 'right') => {
+    if (yearTabsContainerRef.current) {
+      const scrollAmount = 200;
+      const currentScroll = yearTabsContainerRef.current.scrollLeft;
+      yearTabsContainerRef.current.scrollTo({
+        left: direction === 'left' ? currentScroll - scrollAmount : currentScroll + scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  /*
+   * Microcopy Alternatives for Scroll Arrow Tooltips / ARIA Labels:
+   * Role tabs left:
+   *  - "Rewind the roster" (Active)
+   *  - "Slide back to leaders"
+   *  - "Previous team roles"
+   * Role tabs right:
+   *  - "Meet more of the team" (Active)
+   *  - "Explore next categories"
+   *  - "Discover more members"
+   * Year tabs left:
+   *  - "Rewind year archive" (Active)
+   *  - "Back in time"
+   *  - "View previous cohorts"
+   * Year tabs right:
+   *  - "Advance year archive" (Active)
+   *  - "Fast-forward to present"
+   *  - "View newer cohorts"
+   */
 
   return (
     <div className="team-container">
@@ -46,13 +110,14 @@ const AIConsortium = () => {
         <div className="team-tabs-navigation">
           <button
             className="team-tabs-arrow team-tabs-arrow-left"
-            onClick={() => scrollTabs('left')}
-            aria-label="Scroll tabs left"
+            onClick={() => scrollRoleTabs('left')}
+            aria-label="Rewind the roster"
+            title="Rewind the roster"
           >
             &lt;
           </button>
 
-          <div className="team-tabs-container" ref={tabsContainerRef}>
+          <div className="team-tabs-container" ref={roleTabsContainerRef}>
             <div className="team-tabs">
               {allRoles.map(role => (
                 <button
@@ -60,7 +125,7 @@ const AIConsortium = () => {
                   className={`team-tab ${selectedRole === role ? 'active' : ''}`}
                   onClick={() => setSelectedRole(role)}
                 >
-                  {role}
+                  {selectedYear === 2026 ? (roleDisplayLabels[role] || role) : role}
                 </button>
               ))}
             </div>
@@ -68,12 +133,50 @@ const AIConsortium = () => {
 
           <button
             className="team-tabs-arrow team-tabs-arrow-right"
-            onClick={() => scrollTabs('right')}
-            aria-label="Scroll tabs right"
+            onClick={() => scrollRoleTabs('right')}
+            aria-label="Meet more of the team"
+            title="Meet more of the team"
           >
             &gt;
           </button>
         </div>
+
+        {/* Year Archive Tab Navigation with Arrows */}
+        {availableYears.length > 0 && (
+          <div className="team-tabs-navigation year-tabs-navigation" style={{ marginTop: '1rem' }}>
+            <button
+              className="team-tabs-arrow team-tabs-arrow-left"
+              onClick={() => scrollYearTabs('left')}
+              aria-label="Rewind year archive"
+              title="Rewind year archive"
+            >
+              &lt;
+            </button>
+
+            <div className="team-tabs-container" ref={yearTabsContainerRef}>
+              <div className="team-tabs">
+                {availableYears.map(year => (
+                  <button
+                    key={year}
+                    className={`team-tab ${selectedYear === year ? 'active' : ''}`}
+                    onClick={() => setSelectedYear(year)}
+                  >
+                    {year}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <button
+              className="team-tabs-arrow team-tabs-arrow-right"
+              onClick={() => scrollYearTabs('right')}
+              aria-label="Advance year archive"
+              title="Advance year archive"
+            >
+              &gt;
+            </button>
+          </div>
+        )}
 
         <div className="team-members-grid">
           {filteredMembers.map((member, index) => (
